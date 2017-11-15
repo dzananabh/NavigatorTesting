@@ -1,0 +1,6 @@
+environment:
+  url: navigator.ba
+  browser: :chrome
+variables:
+  dropdown: Hrana
+  subdropdown: Pekara
