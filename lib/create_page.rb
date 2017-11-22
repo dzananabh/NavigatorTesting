@@ -2,6 +2,12 @@ require_relative 'main'
 
 class CreatePage < Main
 
+  def scroll(pixel)
+    #putting JavaScript code to a variable outside of execute script, concating it then executing with JS
+    script = "$('.mCSB_container').css({ top:'" + pixel.to_s + "px' })"
+    @browser.execute_script script
+  end
+
   def site_lang
     @browser.element(:tag_name, 'html').attribute_value('lang')
   end
@@ -44,7 +50,6 @@ class CreatePage < Main
   end
 
   def subcategory_drop
-    #@browser.select_list(:xpath, 'id("category-selector-row")/div[3]')
     @browser.select_list(:xpath, 'id("place-form")/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/select')
   end
 
@@ -104,7 +109,19 @@ class CreatePage < Main
   end
 
   def add_hours
-    @browser.element(:class, 'btnAddWorkingHours').click
+    @browser.element(:class, 'btnAddWorkingHours')
+  end
+
+  def phone
+    @browser.text_field(:xpath, 'id("place-form")/div[4]/div[2]/div/div[2]/input')
+  end
+
+  def mobile
+    @browser.text_field(:id, 'poi_mobile_phone')
+  end
+
+  def fax
+    @browser.text_field(:id, 'poi_fax')
   end
 
   def add_website
@@ -147,6 +164,10 @@ class CreatePage < Main
     @browser.text_field(:id, 'poi_instagram_hashtag')
   end
 
+  def wifibtn
+    @browser.element(:id, 'lbl-has-wifi')
+  end
+
   def wifi
     @browser.element(:id, 'lbl-has-wifi').click
   end
@@ -164,11 +185,15 @@ class CreatePage < Main
   end
 
   def upload_file
-    @browser.element(:id, 'fileToUpload').click
+    @browser.file_field(:id, 'fileToUpload').set('/Users/dzanan/Documents/NavigatorTesting/docs/test.png')
   end
 
   def comment
-    @browser.text_field(:id, 'poi_comment')
+    @browser.textarea(:id, 'poi_comment')
+  end
+
+  def icon_remove
+    @browser.element(:class, 'icon-remove')
   end
 
   def create_place

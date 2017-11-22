@@ -28,12 +28,12 @@ RSpec.configure do |config|
     @environment = yaml_configuration['environment']
     @variables = yaml_configuration['variables']
 
+
     @browser = Watir::Browser.new @environment['browser']
-    #@browser.driver.manage.window.maximize
-    #@browser.driver.manage.window.setSize(1400, 900)
-    @browser.window.resize_to(1400, 900)
-    @browser.window.maximize
+    @browser.window.resize_to(2880, 1800)
+    @browser.driver.manage.window.maximize
     @browser.goto "#{@environment['url']}"
+    #@browser.driver.manage.implicit_wait = 5
   end
 
   config.after(:all) do

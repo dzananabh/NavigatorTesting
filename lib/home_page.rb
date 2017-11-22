@@ -23,7 +23,7 @@ class HomePage < Main
   end
 
   def add_place_btn
-    @browser.element(:class, 'iconav-plus')
+    @browser.element(:xpath, 'id("header_container")/ul/li[1]/a/span[2]')
   end
 
   def suggest_feature_btn
@@ -80,5 +80,13 @@ class HomePage < Main
 
   def suggest_feature
     suggest_feature_btn.click
+  end
+
+  def zoom_map
+    @browser.element(:xpath, 'id("page-body-content")/div[2]/div[2]/div[1]/div[1]/div[2]/img[65]')
+  end
+
+  def map_style
+    @browser.element(:class, 'caption')
   end
 end

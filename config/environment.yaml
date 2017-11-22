@@ -4,3 +4,4 @@ environment:
 variables:
   dropdown: Hrana
   subdropdown: Pekara
+  imgpath: /Users/dzanan/Downloads/test.png

@@ -26,6 +26,8 @@ GEM
       rubyzip (~> 1.0)
     watir (6.8.4)
       selenium-webdriver (~> 3.4, >= 3.4.1)
+    watir-scroll (0.3.0)
+      watir (>= 6.0)
 
 PLATFORMS
   ruby
@@ -35,6 +37,7 @@ DEPENDENCIES
   require_all
   rspec
   watir
+  watir-scroll
 
 BUNDLED WITH
    1.16.0
